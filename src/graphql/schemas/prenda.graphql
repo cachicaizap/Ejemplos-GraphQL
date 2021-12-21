@@ -1,0 +1,38 @@
+type Query{
+    getPrenda: [Prenda]
+}
+
+type Mutation {
+    createPrenda(prenda: NewPrendaInput!): String!
+    editPrenda(_id: ID, prenda: EditPrendaInput!): String!
+}
+
+type Prenda {
+    _id: ID
+    name:String
+    color: String
+    talla: Talla
+    image: String
+}
+
+enum Talla {
+    XS
+    S
+    M
+    L
+    XL
+}
+
+input NewPrendaInput {
+    name: String!
+    color: String!
+    talla: Talla!
+    image: String!
+}
+
+input EditPrendaInput {
+    name: String
+    color: String
+    talla: Talla
+    image: String
+}
